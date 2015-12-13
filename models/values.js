@@ -19,6 +19,17 @@ exports.index = function (callback) {
 	}).select('-__v -_id');
 
 }
+exports.index_after = function (timestamp, callback) {
+
+	Value.find(function (error, values) {
+		if (error) {
+			return console.error(error);
+		}
+
+		callback(values);
+	}).where('timestamp').gt(new Date(timestamp) ).select('-__v -_id');
+
+}
 
 exports.show = function (sensorID, callback) {
 
