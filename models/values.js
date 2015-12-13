@@ -9,7 +9,7 @@ var Value = mongoose.model('Value', {
 /* Model Functions */
 
 exports.index = function (callback) {
-
+	console.log(callback);
 	Value.find(function (error, values) {
 		if (error) {
 			return console.error(error);
