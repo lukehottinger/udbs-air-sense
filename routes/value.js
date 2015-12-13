@@ -8,7 +8,7 @@ var values = require("../models/values.js");
 
 exports.init = function (app) {
 
-	app.get("/values/:sensorID", getValues);
+	app.get("/values/:sensorID?", getValues);
 	app.post("/values", postValue);
 
 }
@@ -23,7 +23,9 @@ var getValues = function (request, response) {
 		
 	} else {
 		
-		response.send("Please Specify a Sensor");
+		values.index(function(values) {
+			response.send(values);
+		});
 	}
 
 }
