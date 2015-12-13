@@ -16,7 +16,7 @@ exports.index = function (callback) {
 		}
 
 		callback(values);
-	});
+	}).select('-__v -_id');
 
 }
 
@@ -30,7 +30,7 @@ exports.show = function (sensorID, callback) {
 		}
 
 		callback(values);
-	});
+	}).select('-__v -_id -sensorID');
 
 }
 
